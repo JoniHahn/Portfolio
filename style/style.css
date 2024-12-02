@@ -9,7 +9,7 @@ body {
 }
 
 :root {
-    --color-background:#D8C0CB;
+    --color-background: #f5f0f0;
     --color-burgandy:#48293D;
     --color-blue:#AADBE3;
     --color-headtext:#506F8A;
@@ -23,9 +23,6 @@ header {
     background-color: var(--color-burgandy);
     height: 4em;
     width: 100%;
-    left: 0;
-    z-index: 1000;
-    position: fixed;
 }
 
 header h1 {
@@ -46,39 +43,78 @@ header ul li {
     list-style: none;
     margin-right: 1em;
     font-size: 1em;
-    background-color: var(--color-blue);
     padding: .5em 1.5em .5em 1.5em;
     border-radius: 2em;
     box-shadow: 5px 10px 18px var(--color-burgandy);
 }
 
+header ul li a {
+  color: white;
+}
+
+
 /* Main */
+
+h2 {
+  color: var(--color-headtext);
+  display: flex;
+  justify-content: center;
+  font-size: 2.5em;
+  margin-top: .5em;
+  margin-bottom: 1.5em;
+}
+
 .mywork {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
 }
 
-.mywork h2 {
-    color: var(--color-headtext);
-    display: flex;
-    justify-content: center;
-    font-size: 2.5em;
+.mywork div {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.mywork article {
-    display: flex;
-    background-color: var(--color-secback);
-    width: 29em;
-    margin-bottom: 1em;
-    margin-top: 1em;
-    color: white;
-    box-shadow: 5px 10px 18px var(--color-secback);
+.mywork div article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20em;
+  box-shadow: 10px 5px 5px var(--color-burgandy);
 }
+
+.mywork div article div {
+   display: flex;
+   flex-direction: column;
+   justify-content: start;
+   width: 20em;
+   height: 6em;
+   background-color: var(--color-burgandy);
+  }
 
 .mywork article img {
-    width: 14em;
-    padding: .5em;
+    width: 20em;
+    height: 16em;
+}
+
+.mywork a {
+  color: var(--color-burgandy);
+  text-decoration: none;
+  margin-bottom: 2em;
+  margin-top: 1.5em;
+}
+
+.aboutme {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.aboutme article {
+  display: flex;
+  justify-content: center;
 }
 
 /* Footer */
@@ -87,15 +123,200 @@ footer {
     height: 5em;
 }
 
+/* Footer Container */
+.portfolio-footer {
+  background-color: var(--color-burgandy); /* Donkergroene achtergrond */
+  color: #ffffff; /* Witte tekstkleur */
+  padding: 20px 0;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Footer Content Container */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+/* Footer Sections */
+.footer-section {
+  flex: 1;
+  margin: 10px 20px;
+}
+
+/* Contact en Social Headers */
+.footer-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #c8e6c9; /* Lichte groen tint */
+}
+
+/* Links */
+.footer-section a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #c8e6c9; /* Lichte groen tint */
+}
+
+/* Social Links Styling */
+.social-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-links li {
+  display: inline;
+  margin-right: 15px;
+}
+
+/* Copyright Text */
+.copyright {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #c8e6c9;
+  margin-top: 10px;
+  background-color: var(--color-burgandy);
+  margin: 0;
+  padding-bottom: 5px;
+}
+
+/* Name animation */
+/* De container voor de naam */
+.animated-name {
+  display: flex;
+  flex-direction: column; /* Rijen maken */
+  align-items: center;
+  margin-top: 50px;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #506F8A;
+  text-shadow: 0 0 10px #506F8A;
+}
+
+/* Elke rij wordt gecentreerd */
+.animated-name div {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0; /* Ruimte tussen de rijen */
+}
+
+/* Stijlen voor de letters */
+.animated-name span {
+  margin: 0 5px; /* Ruimte tussen letters */
+  opacity: 0;
+  color: #506F8A;
+  text-shadow: 0 0 10px #506F8A;
+  transform: scale(0.5) translateY(20px);
+  animation: bloom 1.5s ease-in-out forwards, bounce 2s infinite ease-in-out, moveX 3s infinite ease-in-out;
+}
+
+/* Bloem-effect (initiële verschijning) */
+@keyframes bloom {
+  0% {
+      opacity: 0;
+      transform: scale(0.5) translateY(20px);
+  }
+  50% {
+      opacity: 0.7;
+      transform: scale(1.2) translateY(-10px);
+  }
+  100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+  }
+}
+
+/* Ruimte voor spaties */
+.animated-name span:empty {
+  margin: 0 15px; /* Grotere ruimte tussen woorden */
+}
+/* De container voor de naam */
+.animated-name {
+  display: flex;
+  flex-direction: row; /* Rijen maken */
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #2e7d32;
+  text-shadow: 0 0 10px rgba(46, 125, 50, 0.8);
+}
+
+/* Elke rij wordt gecentreerd */
+.animated-name div {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0; /* Ruimte tussen de rijen */
+}
+
+/* Stijlen voor de letters */
+.animated-name span {
+  margin: 0 5px; /* Ruimte tussen letters */
+  opacity: 0;
+  transform: scale(0.5) translateY(20px);
+  animation: bloom 1.5s ease-in-out forwards, bounce 2s infinite ease-in-out, moveX 3s infinite ease-in-out;
+}
+
+/* Bloem-effect (initiële verschijning) */
+@keyframes bloom {
+  0% {
+      opacity: 0;
+      transform: scale(0.5) translateY(20px);
+  }
+  50% {
+      opacity: 0.7;
+      transform: scale(1.2) translateY(-10px);
+  }
+  100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+  }
+}
+
+/* Bounce-effect (op en neer bewegen) */
+@keyframes bounce {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-15px);
+  }
+}
+
+/* Links-rechts beweging */
+@keyframes moveX {
+  0%, 100% {
+      transform: translateX(0);
+  }
+  50% {
+      transform: translateX(10px);
+  }
+}
+
+/* Ruimte voor spaties */
+.animated-name span:empty {
+  margin: 0 15px; /* Grotere ruimte tussen woorden */
+}
+
 
 /* Flower animation */
 /* https://codepen.io/theArtsy07/pen/oNPOVqB */
 
-section {
+.flower-section {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 75vh;
     background-color: var(--color-background);
     overflow: hidden;
     perspective: 1000px;
@@ -109,7 +330,7 @@ section {
     width: 100%;
     height: 100%;
     filter: blur(0.1vmin);
-    background-image: radial-gradient(ellipse at top, transparent 0%, var(--dark-color)), radial-gradient(ellipse at bottom, var(--dark-color), rgba(145, 233, 255, 0.2)), repeating-linear-gradient(220deg, black 0px, black 19px, transparent 19px, transparent 22px), repeating-linear-gradient(189deg, black 0px, black 19px, transparent 19px, transparent 22px), repeating-linear-gradient(148deg, black 0px, black 19px, transparent 19px, transparent 22px), linear-gradient(90deg, #00fffa, #f0f0f0);
+    background-image: radial-gradient(ellipse at top, transparent 0%, ), radial-gradient(ellipse at bottom, rgba(145, 233, 255, 0.2)), repeating-linear-gradient(220deg, black 0px, black 19px, transparent 19px, transparent 22px), repeating-linear-gradient(189deg, black 0px, black 19px, transparent 19px, transparent 22px), repeating-linear-gradient(148deg, black 0px, black 19px, transparent 19px, transparent 22px), linear-gradient(90deg, #00fffa, #f0f0f0);
   }
   
   .flowers {
