@@ -9,18 +9,15 @@ body {
 }
 
 :root {
-    --color-background: #f5f0f0;
-    --color-burgandy:#48293D;
-    --color-blue:#AADBE3;
-    --color-headtext:#506F8A;
-    --color-secback:#45304D;
+  --color-background: white;
+  --color-text: black;
+  --color-accent: blue;
 }
 
 /* Header */
 header {
     display: flex;
     justify-content: space-between;
-    background-color: var(--color-burgandy);
     height: 4em;
     width: 100%;
 }
@@ -29,7 +26,7 @@ header h1 {
     margin-left: 1em;
     display: flex;
     align-items: center;
-    color: var(--color-blue);
+    color: var(--color-text);
 }
 
 header ul {
@@ -43,69 +40,95 @@ header ul li {
     list-style: none;
     margin-right: 1em;
     font-size: 1em;
-    padding: .5em 1.5em .5em 1.5em;
     border-radius: 2em;
-    box-shadow: 5px 10px 18px var(--color-burgandy);
 }
 
 header ul li a {
-  color: white;
-}
-
-
-/* Main */
-
-h2 {
-  color: var(--color-headtext);
-  display: flex;
-  justify-content: center;
-  font-size: 2.5em;
-  margin-top: .5em;
-  margin-bottom: 1.5em;
-}
-
-.mywork {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.mywork div {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.mywork div article {
-  display: flex;
-  flex-direction: column;
+  display: inline-flex;
   align-items: center;
-  width: 20em;
-  box-shadow: 10px 5px 5px var(--color-burgandy);
+  justify-content: center;
+  padding: 15px 30px;
+  border: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10rem;
+  transition: all 0.02s;
+  font-weight: bold;
+  cursor: pointer;
+  color: rgb(37, 37, 37);
+  z-index: 0;
+  box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
 }
 
-.mywork div article div {
-   display: flex;
-   flex-direction: column;
-   justify-content: start;
-   width: 20em;
-   height: 6em;
-   background-color: var(--color-burgandy);
+header ul li a:hover {
+  background: rgb(193, 228, 248);
+  color: rgb(33, 0, 85);
+}
+
+header ul li a:active {
+  transform: scale(0.97);
+}
+
+.hoverEffect {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.hoverEffect div {
+  background: rgb(222, 0, 75);
+  background: linear-gradient(
+    90deg,
+    rgba(222, 0, 75, 1) 0%,
+    rgba(191, 70, 255, 1) 49%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  border-radius: 40rem;
+  width: 10rem;
+  height: 10rem;
+  transition: 0.4s;
+  filter: blur(20px);
+  animation: effect infinite 3s linear;
+  opacity: 0.5;
+}
+
+.button:hover .hoverEffect div {
+  width: 8rem;
+  height: 8rem;
+}
+
+@keyframes effect {
+  0% {
+    transform: rotate(0deg);
   }
 
-.mywork article img {
-    width: 20em;
-    height: 16em;
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-.mywork a {
-  color: var(--color-burgandy);
-  text-decoration: none;
-  margin-bottom: 2em;
-  margin-top: 1.5em;
+.tekstme {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
 }
 
+.tekstme p {
+  width: 20em;
+}
+
+.tekstme img {
+  width: 20em;
+  height: 30em;
+}
+
+/* Main */
 .aboutme {
   display: flex;
   flex-direction: column;
@@ -117,190 +140,16 @@ h2 {
   justify-content: center;
 }
 
-/* Footer */
-footer {
-    background-color: var(--color-burgandy);
-    height: 5em;
-}
-
-/* Footer Container */
-.portfolio-footer {
-  background-color: var(--color-burgandy); /* Donkergroene achtergrond */
-  color: #ffffff; /* Witte tekstkleur */
-  padding: 20px 0;
-  font-size: 1rem;
-  text-align: center;
-}
-
-/* Footer Content Container */
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 0 20px;
-}
-
-/* Footer Sections */
-.footer-section {
-  flex: 1;
-  margin: 10px 20px;
-}
-
-/* Contact en Social Headers */
-.footer-section h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  color: #c8e6c9; /* Lichte groen tint */
-}
-
-/* Links */
-.footer-section a {
-  color: #ffffff;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-section a:hover {
-  color: #c8e6c9; /* Lichte groen tint */
-}
-
-/* Social Links Styling */
-.social-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.social-links li {
-  display: inline;
-  margin-right: 15px;
-}
-
-/* Copyright Text */
-.copyright {
-  text-align: center;
-  font-size: 0.9rem;
-  color: #c8e6c9;
-  margin-top: 10px;
-  background-color: var(--color-burgandy);
-  margin: 0;
-  padding-bottom: 5px;
-}
-
 /* Name animation */
 /* De container voor de naam */
-.animated-name {
+h2 {
   display: flex;
   flex-direction: column; /* Rijen maken */
   align-items: center;
-  margin-top: 50px;
-  font-size: 4rem;
+  margin-top: 31px;
+  font-size: 3rem;
   font-weight: bold;
   color: #506F8A;
-  text-shadow: 0 0 10px #506F8A;
-}
-
-/* Elke rij wordt gecentreerd */
-.animated-name div {
-  display: flex;
-  justify-content: center;
-  margin: 10px 0; /* Ruimte tussen de rijen */
-}
-
-/* Stijlen voor de letters */
-.animated-name span {
-  margin: 0 5px; /* Ruimte tussen letters */
-  opacity: 0;
-  color: #506F8A;
-  text-shadow: 0 0 10px #506F8A;
-  transform: scale(0.5) translateY(20px);
-  animation: bloom 1.5s ease-in-out forwards, bounce 2s infinite ease-in-out, moveX 3s infinite ease-in-out;
-}
-
-/* Bloem-effect (initiële verschijning) */
-@keyframes bloom {
-  0% {
-      opacity: 0;
-      transform: scale(0.5) translateY(20px);
-  }
-  50% {
-      opacity: 0.7;
-      transform: scale(1.2) translateY(-10px);
-  }
-  100% {
-      opacity: 1;
-      transform: scale(1) translateY(0);
-  }
-}
-
-/* Ruimte voor spaties */
-.animated-name span:empty {
-  margin: 0 15px; /* Grotere ruimte tussen woorden */
-}
-/* De container voor de naam */
-.animated-name {
-  display: flex;
-  flex-direction: row; /* Rijen maken */
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 50px;
-  font-size: 4rem;
-  font-weight: bold;
-  color: #2e7d32;
-  text-shadow: 0 0 10px rgba(46, 125, 50, 0.8);
-}
-
-/* Elke rij wordt gecentreerd */
-.animated-name div {
-  display: flex;
-  justify-content: center;
-  margin: 10px 0; /* Ruimte tussen de rijen */
-}
-
-/* Stijlen voor de letters */
-.animated-name span {
-  margin: 0 5px; /* Ruimte tussen letters */
-  opacity: 0;
-  transform: scale(0.5) translateY(20px);
-  animation: bloom 1.5s ease-in-out forwards, bounce 2s infinite ease-in-out, moveX 3s infinite ease-in-out;
-}
-
-/* Bloem-effect (initiële verschijning) */
-@keyframes bloom {
-  0% {
-      opacity: 0;
-      transform: scale(0.5) translateY(20px);
-  }
-  50% {
-      opacity: 0.7;
-      transform: scale(1.2) translateY(-10px);
-  }
-  100% {
-      opacity: 1;
-      transform: scale(1) translateY(0);
-  }
-}
-
-/* Bounce-effect (op en neer bewegen) */
-@keyframes bounce {
-  0%, 100% {
-      transform: translateY(0);
-  }
-  50% {
-      transform: translateY(-15px);
-  }
-}
-
-/* Links-rechts beweging */
-@keyframes moveX {
-  0%, 100% {
-      transform: translateX(0);
-  }
-  50% {
-      transform: translateX(10px);
-  }
 }
 
 /* Ruimte voor spaties */
@@ -308,7 +157,71 @@ footer {
   margin: 0 15px; /* Grotere ruimte tussen woorden */
 }
 
+.links {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+}
 
+.links a {
+  text-decoration: none;
+  background-color: var(--color-accent);
+  padding: .5em 2em .5em 2em;
+  border-radius: 3em;
+  color: white;
+  margin-top: 1em;
+  transition: transform 1s ease, box-shadow 0.3s ease;
+  animation: pop 3s ease-in-out forwards; /* Zelfde animatie als de bloemen */
+}
+
+/* Keyframes voor de pop-animatie */
+@keyframes pop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.mywork{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  padding: 2em;
+}
+
+.mywork li h3 {
+  padding-left: .5em;
+}
+
+.mywork li {
+  list-style: none;
+  margin-top: 1.5em;
+}
+
+.mywork li img {
+  height: 15em;
+  width: 20em;
+}
+
+.mywork p {
+  width: 20em;
+  padding: .5em;
+}
+
+.mywork a {
+  color: white;
+  background-color: var(--color-accent);
+  text-decoration: none;
+  padding: .5em 2em .5em 2em;
+  border-radius: 3em;
+}
 /* Flower animation */
 /* https://codepen.io/theArtsy07/pen/oNPOVqB */
 
@@ -316,7 +229,7 @@ footer {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    min-height: 75vh;
+    min-height: 80vh;
     background-color: var(--color-background);
     overflow: hidden;
     perspective: 1000px;
