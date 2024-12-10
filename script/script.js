@@ -13,21 +13,17 @@ onload = () => {
     const prevBtn = document.querySelector('.prev');
     const nextBtn = document.querySelector('.next');
     const dots = document.querySelectorAll('.dot');
-    const sliderContainer = document.querySelector('.slider-container');
 
     let currentIndex = 0;
-    let autoSlideInterval;
 
+    // Update dots to reflect the current slide
     function updateDots() {
         dots.forEach((dot, index) => {
-            if (index === currentIndex) {
-                dot.classList.add('active');
-            } else {
-                dot.classList.remove('active');
-            }
+            dot.classList.toggle('active', index === currentIndex);
         });
     }
 
+    // Show the specified slide
     function showSlides(index) {
         if (index >= slides.length) {
             currentIndex = 0;
@@ -40,6 +36,7 @@ onload = () => {
         updateDots();
     }
 
+    // Next and previous slide functions
     function nextSlide() {
         showSlides(currentIndex + 1);
     }
@@ -48,37 +45,18 @@ onload = () => {
         showSlides(currentIndex - 1);
     }
 
-    function startAutoSlide() {
-        autoSlideInterval = setInterval(nextSlide, 4000);
-    }
-
-    function stopAutoSlide() {
-        clearInterval(autoSlideInterval);
-    }
-
+    // Add event listeners for dots
     dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-            stopAutoSlide();
-            showSlides(parseInt(dot.dataset.index));
-            startAutoSlide();
+        dot.addEventListener('click', (event) => {
+            const index = parseInt(event.target.dataset.index, 10);
+            showSlides(index);
         });
     });
 
-    nextBtn.addEventListener('click', () => {
-        stopAutoSlide();
-        nextSlide();
-        startAutoSlide();
-    });
+    // Add event listeners for navigation buttons
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
 
-    prevBtn.addEventListener('click', () => {
-        stopAutoSlide();
-        prevSlide();
-        startAutoSlide();
-    });
-
-    sliderContainer.addEventListener('mouseover', stopAutoSlide);
-    sliderContainer.addEventListener('mouseout', startAutoSlide);
-
-    startAutoSlide();
-    updateDots();
+    // Initialize slider
+    showSlides(currentIndex);
 });

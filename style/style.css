@@ -49,7 +49,17 @@ header ul li {
     border-radius: 2em;
 }
 
-a {
+header ul li a {
+  text-decoration: none;
+  color: #506F8A;
+  font-size: 18px;
+}
+
+header ul li a:hover {
+  text-decoration: underline;
+}
+
+main a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -67,16 +77,16 @@ a {
   box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
 }
 
-a:hover {
+main a:hover {
   background: rgb(193, 228, 248);
   color: rgb(33, 0, 85);
 }
 
-a:active {
+main a:active {
   transform: scale(0.97);
 }
 
-.hoverEffect {
+main .hoverEffect {
   position: absolute;
   bottom: 0;
   top: 0;
@@ -88,7 +98,7 @@ a:active {
   z-index: 1;
 }
 
-.hoverEffect div {
+main .hoverEffect div {
   background: rgb(222, 0, 75);
   background: linear-gradient(
     90deg,
@@ -105,7 +115,7 @@ a:active {
   opacity: 0.5;
 }
 
-.button:hover .hoverEffect div {
+main .button:hover .hoverEffect div {
   width: 8rem;
   height: 8rem;
 }
